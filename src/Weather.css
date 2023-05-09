@@ -1,3 +1,22 @@
-form {
-    margin-top: 0;
+#search-bar{
+    width: 75%;
+}
+#submit-button{
+    position: relative;
+    margin-top: -66px;
+    left: 224px;
+}
+.btn{
+    background-color: #5B7884;
+border-color: #5B7884;
+}
+form{
+    margin-top: 10px;
+}
+#forecast{
+        
+        background-color: #5B7884;
+        height: 443px;
+        opacity: 0.6;
+      
 }
