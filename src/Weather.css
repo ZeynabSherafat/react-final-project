@@ -4,19 +4,60 @@
 #submit-button{
     position: relative;
     margin-top: -66px;
-    left: 224px;
-}
-.btn{
+    left: 278px;
     background-color: #5B7884;
-border-color: #5B7884;
+    border-color: #5B7884;
 }
+
+
 form{
     margin-top: 10px;
 }
+hr{
+    margin-top: 3px;
+    color: black;
+    height: 1px;
+    border-top: solid 2px black;
+    opacity: 0.5;
+}
+h5{
+    font-size: 15px;
+margin-bottom: 1.5px;
+}
+h1{
+    font-size: 100px;
+    margin-top: 110px;
+    margin-bottom: -7px;
+    margin-left: 20px;
+}
+h2{
+    font-size: 18px;
+    margin-left: 20px;
+}
+h3{
+    margin-top: 17px;
+    font-size: 25px;
+}
 #forecast{
-        
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         background-color: #5B7884;
         height: 443px;
         opacity: 0.6;
-      
+        padding: 30px 20px;
 }
+.forecast-temp{
+    text-align: left;
+color: white;
+font-size: 20px;
+}
+
+.forecast-date{
+    color: white;
+    text-align: left;
+float: right;
+}
+
+
+
