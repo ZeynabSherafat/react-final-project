@@ -1,5 +1,8 @@
 import React, {useState} from "react";
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faWind, faDroplet } from '@fortawesome/free-solid-svg-icons'
+
 
 import "./Weather.css"
 
@@ -69,8 +72,8 @@ description: response.data.weather[0].description
             <h5><span>{day}</span>,{" "}<span>{hour}:{minute}</span></h5>
             <h5>{month} {year}</h5>
             <h3>{weather.description}</h3>
-            <h6>Humidity: {weather.humidity}%</h6>
-            <h6>Windspeed: {Math.round(weather.wind)} km/h</h6>
+            <h6> <FontAwesomeIcon icon={faDroplet} /> Humidity: {weather.humidity}%</h6>
+            <h6><FontAwesomeIcon icon={faWind} /> Windspeed: {Math.round(weather.wind)} km/h</h6>
             <h1>{Math.round(weather.temperature)}°C</h1>
             <h2>{weather.city}, {weather.country}</h2>
             </div>
