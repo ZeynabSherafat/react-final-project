@@ -1,24 +1,55 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Weather.css"
 
 export default function Weather(){
-    return (
+  let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] 
+  let date = new Date();
+   let day = weekDays[date.getDay()];
+
+   let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October" , "November", "December"]
+   let month = months[date.getMonth()];
+
+   let year = date.getFullYear();
+   console.log(year);
+   let hour = date.getHours();
+   let minute = date.getMinutes();
+   if (hour < 10){
+    hour = `0${hour}`
+   }
+   if (minute < 10){
+    minute = `0${minute}`
+   }
+
+   let [city, setCity] = useState("")
+
+   function handleSubmit(event){
+    event.preventDefault();
+    let apiKey = "97bed167ec49bff56e6c1b63daef9c86"
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+   }
+
+   function replaceCity(event){
+    setCity(event.target.value)
+   }
+
+  return (
         <div className="Weather">
             <div className="container"> 
             <div className="row">
                 <div className="col-7">
-            <form>
+            <form onSubmit={handleSubmit}>
             <input
             type="text"
             className="form-control"
             placeholder="Enter the city"
-            autocomplete="off"
+            autoComplete="off"
             id="search-bar"
+            onChange={replaceCity}
           />
           <input type="submit" className="btn btn-primary" value="Search" id="submit-button"/>
             </form>
-            <h5><span>Saturday</span>,{" "}<span>5:30</span></h5>
-            <h5>May 2023</h5>
+            <h5><span>{day}</span>,{" "}<span>{hour}:{minute}</span></h5>
+            <h5>{month} {year}</h5>
             <h3>Mostly Cloudy</h3>
             <h1>9°C</h1>
             <h2>Karaj, Iran</h2>
