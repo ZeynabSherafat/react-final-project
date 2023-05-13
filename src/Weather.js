@@ -8,12 +8,11 @@ import { faWind, faDroplet } from '@fortawesome/free-solid-svg-icons'
 import "./Weather.css"
 
 export default function Weather(){
-   let [city, setCity] = useState("")
+   let [city, setCity] = useState("karaj")
    let [weather, setWeather] = useState("")
    let [on, setOn] = useState(false)
 
    function displayWeatherInfo(response){
-    console.log(response);
     setWeather ({
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
@@ -28,21 +27,23 @@ export default function Weather(){
     setOn(true)
    }
 
-   
-
-   function handleSubmit(event){
-    event.preventDefault();
+   function Search(){
     let apiKey = "97bed167ec49bff56e6c1b63daef9c86"
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
     axios.get(url).then(displayWeatherInfo);
-   
+   }
+
+   function handleSubmit(event){
+    event.preventDefault();
+    Search();
    }
 
    function replaceCity(event){
     setCity(event.target.value)
    }
 
-   if (on === true) {
+   
+   if (on) {
   return (
         <div className="Weather">
             <div className="container"> 
@@ -68,15 +69,13 @@ export default function Weather(){
             <h2>{weather.city}, {weather.country}</h2>
             </div>
             <div className="col-5" id="forecast">
-              <WeatherForecast coordinates={weather.coords}/>
+          <WeatherForecast coordinates={weather.coords}/>
               </div>
           </div>
           </div>
         </div>
     )} else {
-      let apiKey = "97bed167ec49bff56e6c1b63daef9c86"
-let karajUrl =  `https://api.openweathermap.org/data/2.5/weather?q=karaj&appid=${apiKey}&units=metric`
-axios.get(karajUrl).then(displayWeatherInfo);
+     Search();
 return "Loading..."
     }
 }
