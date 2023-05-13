@@ -7,8 +7,7 @@ function App() {
     <div className="App">
       <div className="container">
       <div className="box">
-        <div className="forecast-background">
-        </div>
+      
 <Weather />
       </div>
       </div>

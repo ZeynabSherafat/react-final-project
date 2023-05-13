@@ -1,3 +1,5 @@
+
+
 #search-bar{
     width: 75%;
 }
@@ -31,7 +33,9 @@ h2{
     margin-left: 20px;
 }
 h3{
+    display: inline-block;
     margin-top: 17px;
+    margin-bottom: 17px;
     font-size: 25px;
 }
 h5{
@@ -61,6 +65,12 @@ font-size: 20px;
     text-align: left;
 float: right;
 }
-
+.WeatherIcon{
+    display: inline;
+}
+canvas{
+    margin-bottom: -14px;
+    margin-right: 7px;
+}
 
 
