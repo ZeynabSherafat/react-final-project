@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import axios from 'axios';
 import CurrentDate from "./CurrentDate"
 import WeatherIcon from "./WeatherIcon"
-import WeatherForecast  from "./WeatherForecast"
+import WeatherForecast from "./WeatherForecast";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWind, faDroplet } from '@fortawesome/free-solid-svg-icons'
 import "./Weather.css"
@@ -13,7 +13,7 @@ export default function Weather(){
    let [on, setOn] = useState(false)
 
    function displayWeatherInfo(response){
-    console.log (response);
+    console.log(response);
     setWeather ({
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
@@ -21,18 +21,21 @@ export default function Weather(){
       city: response.data.name,
       country: response.data.sys.country,
       description: response.data.weather[0].description,
-      icon: response.data.weather[0].icon
-
+      icon: response.data.weather[0].icon,
+      coords: response.data.coord
     })
 
     setOn(true)
    }
+
+   
 
    function handleSubmit(event){
     event.preventDefault();
     let apiKey = "97bed167ec49bff56e6c1b63daef9c86"
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
     axios.get(url).then(displayWeatherInfo);
+   
    }
 
    function replaceCity(event){
@@ -65,43 +68,8 @@ export default function Weather(){
             <h2>{weather.city}, {weather.country}</h2>
             </div>
             <div className="col-5" id="forecast">
-            <row>
-              <WeatherForecast />
-            <div className="col">
-                <span className="forecast-temp">17°/25°</span>
-                <span className="forecast-date">Sun</span>
-          <hr />
-            </div>
-          </row>
-          <row>
-            <div className="col">
-                <span className="forecast-temp">12°/16°</span>
-                <span className="forecast-date">Mon</span>
-          <hr />
-            </div>
-          </row>
-          <row>
-            <div className="col">
-                <span className="forecast-temp">9°/17°</span>
-                <span className="forecast-date">Tue</span>
-          <hr />
-            </div>
-          </row>
-          <row>
-            <div className="col">
-                <span className="forecast-temp">11°/21°</span>
-                <span className="forecast-date">Wed</span>
-          <hr />
-            </div>
-          </row>
-          <row>
-            <div className="col">
-                <span className="forecast-temp">13°/18°</span>
-                <span className="forecast-date">Thu</span>
-          <hr />
-            </div>
-          </row>
-          </div>
+              <WeatherForecast coordinates={weather.coords}/>
+              </div>
           </div>
           </div>
         </div>
