@@ -1,18 +1,17 @@
 import React, {useState} from "react";
 import axios from 'axios';
+import DailyForecast from "./DailyForecast";
 
 export default function WeatherForecast(props){
     let [ready,setReady] = useState(false);
 let [forecast, setForecast] = useState({})
 
     function fetchForecastData(response){
-        console.log(response)
-    setForecast({
-        minimum: response.data.daily[0].temp.min,
-        maximum: response.data.daily[0].temp.max
-    })
-    setReady(true);
-}
+    setForecast(response.data.daily)
+        setReady(true);
+    }
+    
+
 
 function Load(){
     let apiKey = "97bed167ec49bff56e6c1b63daef9c86"
@@ -27,15 +26,17 @@ if (ready){
         <div className="WeatherForecast">
         <row>
         <div className="col">
-            <span className="forecast-temp">{Math.round(forecast.minimum)}°/{Math.round(forecast.maximum)}°</span>
-            <span className="forecast-date">Sun</span>
-      <hr />
+            <DailyForecast data = {forecast[0]}/>
+            <DailyForecast data = {forecast[0]}/>
+            <DailyForecast data = {forecast[0]}/>
+            <DailyForecast data = {forecast[0]}/>
+            <DailyForecast data = {forecast[0]}/>
         </div>
       </row> 
       </div>
     )
 } else {
     Load();
-    return (null);
+    return null;
 }
 }

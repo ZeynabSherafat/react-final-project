@@ -69,6 +69,7 @@ export default function Weather(){
             <h2>{weather.city}, {weather.country}</h2>
             </div>
             <div className="col-5" id="forecast">
+              
           <WeatherForecast coordinates={weather.coords}/>
               </div>
           </div>
