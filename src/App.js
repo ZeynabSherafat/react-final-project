@@ -7,9 +7,17 @@ function App() {
     <div className="App">
       <div className="container">
       <div className="box">
-      
 <Weather />
       </div>
+      <footer>
+        <a
+        href="https://github.com/ZeynabSherafat/react-final-project"
+        target="_blank"
+        rel="noreferrer">
+          Open-source code
+        </a> {" "}
+by Zeynab Sherafat
+      </footer>
       </div>
     </div>
   );
