@@ -64,7 +64,7 @@ export default function Weather(){
            <WeatherIcon code={weather.icon} color="#212529" size={45}/>
             <h3>{weather.description}</h3>
             <h6> <FontAwesomeIcon icon={faDroplet} /> Humidity: {weather.humidity}%</h6>
-            <h6><FontAwesomeIcon icon={faWind} /> Windspeed: {Math.round(weather.wind)} km/h</h6>
+            <h6><FontAwesomeIcon icon={faWind} /> Wind: {weather.wind} km/h</h6>
             <h1>{Math.round(weather.temperature)}°C</h1>
             <h2>{weather.city}, {weather.country}</h2>
             </div>
