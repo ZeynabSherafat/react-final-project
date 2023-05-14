@@ -25,13 +25,15 @@ if (ready){
     return (
         <div className="WeatherForecast">
         <row>
-        <div className="col">
-            <DailyForecast data = {forecast[0]}/>
-            <DailyForecast data = {forecast[0]}/>
-            <DailyForecast data = {forecast[0]}/>
-            <DailyForecast data = {forecast[0]}/>
-            <DailyForecast data = {forecast[0]}/>
-        </div>
+            {forecast.map(function(eachDayForecast, index){
+                if (index < 5) {
+                return(
+                    <div className="col" key={index}>
+                <DailyForecast data = {eachDayForecast}/>
+                </div>
+                )}
+            })}
+           
       </row> 
       </div>
     )

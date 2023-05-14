@@ -2,7 +2,7 @@ form{
     margin-top: 10px;
 }
 hr{
-    margin-top: 7px;
+    margin-top: 0px;
     color: black;
     height: 1px;
     border-top: solid 2px black;
@@ -35,9 +35,12 @@ canvas{
     margin-bottom: -14px;
     margin-right: 7px;
 }
+.DailyForecast canvas{
+    margin-bottom: -6px;
+}
 .forecast-temp{
     text-align: left;
-    margin-left: -4px;
+    margin-left: 1px;
 color: white;
 font-size: 20px;
 }
@@ -75,6 +78,6 @@ float: right;
 }
 
 .DailyForecast{
-    margin: 40px 0px;
+    margin: 47px 0px;
 }
 
